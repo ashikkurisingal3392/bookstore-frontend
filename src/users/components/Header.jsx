@@ -1,0 +1,97 @@
+import React, { useEffect } from 'react'
+import {
+  Avatar,
+  Dropdown,
+  DropdownDivider,
+  DropdownHeader,
+  DropdownItem,
+  Navbar,
+  NavbarBrand,
+  NavbarCollapse,
+  NavbarLink,
+  NavbarToggle,
+} from "flowbite-react";
+
+function Header() {
+
+  const[token,setToken]=React.useState('')
+  const[userDetails,setUserDetails]=React.useState({})
+
+  console.log(userDetails);
+  
+
+  useEffect(()=>{
+
+    setToken(sessionStorage.getItem("token"))
+    setUserDetails(JSON.parse(sessionStorage.getItem("existingUser")) )
+  },[token])
+
+  const handleLogout=()=>{
+
+    sessionStorage.removeItem('existingUser')
+     sessionStorage.removeItem('token')
+
+    window.location.href='/login'
+  }
+
+  return (
+    <div>
+
+
+    <Navbar fluid rounded  style={{backgroundColor:'#ab5852'}}>
+      <NavbarBrand href="/">
+        <img src="https://cdn-icons-png.flaticon.com/512/5078/5078755.png" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
+        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">The Book Haven</span>
+      </NavbarBrand>
+      <div className="flex md:order-2">
+        {
+          token?
+          <Dropdown
+          arrowIcon={false}
+          inline
+          label={
+            <Avatar alt="User settings" img={userDetails.profile} referrerPolicy='origin'  rounded />
+          }
+        >
+          <DropdownHeader>
+            <span className="block text-sm">{userDetails.username}</span>
+            <span className="block truncate text-sm font-medium">{userDetails.email}</span>
+          </DropdownHeader>
+          <DropdownItem href='/profile'>Profile</DropdownItem>
+          <DropdownItem>Settings</DropdownItem>
+          <DropdownItem>Earnings</DropdownItem>
+          <DropdownDivider />
+
+          <DropdownItem onClick={handleLogout}>Sign out</DropdownItem>
+        </Dropdown>
+          :
+          <Dropdown
+          arrowIcon={false}
+          inline
+          label={
+            <Avatar alt="User settings" img="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" rounded />
+          }
+        >
+          <DropdownItem href='/login'>Login</DropdownItem>
+           <DropdownItem href='/register'>Register</DropdownItem>
+        </Dropdown>
+        }
+        
+        <NavbarToggle />
+      </div>
+      <NavbarCollapse>
+        <NavbarLink href="/" active>
+          Home
+        </NavbarLink>
+        <NavbarLink href="">Books</NavbarLink>
+        <NavbarLink href="/careers">Careers</NavbarLink>
+        <NavbarLink href="/contact">Contact</NavbarLink>
+      </NavbarCollapse>
+    </Navbar>
+
+      
+    </div>
+  )
+}
+
+export default Header
