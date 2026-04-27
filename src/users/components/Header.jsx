@@ -31,8 +31,7 @@ function Header() {
 
     sessionStorage.removeItem('existingUser')
      sessionStorage.removeItem('token')
-
-    window.location.href='/login'
+    
   }
 
   return (
@@ -58,12 +57,13 @@ function Header() {
             <span className="block text-sm">{userDetails.username}</span>
             <span className="block truncate text-sm font-medium">{userDetails.email}</span>
           </DropdownHeader>
-          <DropdownItem href='/profile'>Profile</DropdownItem>
+           <Link to={'/profile'}> <DropdownItem >Profile</DropdownItem></Link>
+         
           <DropdownItem>Settings</DropdownItem>
           <DropdownItem>Earnings</DropdownItem>
           <DropdownDivider />
 
-          <DropdownItem onClick={handleLogout}>Sign out</DropdownItem>
+          <Link to={'/login'}><DropdownItem onClick={handleLogout}>Sign out</DropdownItem></Link>
         </Dropdown>
           :
           <Dropdown
@@ -76,7 +76,10 @@ function Header() {
          <Link to={'/login'}>
           <DropdownItem >Login</DropdownItem>
          </Link>
-           <DropdownItem href='/register'>Register</DropdownItem>
+           <Link to={'/register'}>
+            <DropdownItem >Register</DropdownItem>
+           </Link>
+          
         </Dropdown>
         }
         

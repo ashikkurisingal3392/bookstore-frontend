@@ -12,6 +12,7 @@ import {
   NavbarToggle,
 } from "flowbite-react";
 import Marquee from "react-fast-marquee";
+import { Link } from 'react-router-dom';
 
 function AdminHeader() {
 
@@ -43,22 +44,22 @@ function AdminHeader() {
               <span className="block text-sm">Ashik Antony</span>
               <span className="block truncate text-sm font-medium">admin@gmail.com</span>
             </DropdownHeader>
-            <DropdownItem href='/profile'>Profile</DropdownItem>
+             {/* <Link to={'/profile'}><DropdownItem>Profile</DropdownItem></Link> */}
             <DropdownItem>Settings</DropdownItem>
             <DropdownItem>Earnings</DropdownItem>
             <DropdownDivider />
-            <DropdownItem onClick={handleLogout} >Sign out</DropdownItem>
+             <Link to={'/login'}><DropdownItem onClick={handleLogout} >Sign out</DropdownItem></Link>
           </Dropdown>
           <NavbarToggle />
         </div>
-        <NavbarCollapse>
-               <NavbarLink href="/" active>
+        {/* <NavbarCollapse> */}
+               {/* <NavbarLink href="/" active>
                  Home
                </NavbarLink>
                <NavbarLink href="/allbooks">Books</NavbarLink>
                <NavbarLink href="/careers">Careers</NavbarLink>
                <NavbarLink href="/contact">Contact</NavbarLink>
-             </NavbarCollapse>
+             </NavbarCollapse> */}
 
       </Navbar>
       <section>
