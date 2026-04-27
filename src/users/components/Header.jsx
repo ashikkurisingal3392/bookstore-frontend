@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import {
   Avatar,
   Dropdown,
@@ -72,7 +73,9 @@ function Header() {
             <Avatar alt="User settings" img="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" rounded />
           }
         >
-          <DropdownItem href='/login'>Login</DropdownItem>
+         <Link to={'/login'}>
+          <DropdownItem >Login</DropdownItem>
+         </Link>
            <DropdownItem href='/register'>Register</DropdownItem>
         </Dropdown>
         }
