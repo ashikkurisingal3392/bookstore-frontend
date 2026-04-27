@@ -87,8 +87,8 @@ function Header() {
           Home
         </NavbarLink>
         <NavbarLink href="">Books</NavbarLink>
-        <NavbarLink href="/careers">Careers</NavbarLink>
-        <NavbarLink href="/contact">Contact</NavbarLink>
+       <Link to={'/careers'}><NavbarLink >Careers</NavbarLink></Link> 
+         <Link to={'/contact'}><NavbarLink >Contact</NavbarLink></Link> 
       </NavbarCollapse>
     </Navbar>
 
