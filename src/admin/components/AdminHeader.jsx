@@ -20,8 +20,6 @@ function AdminHeader() {
 
     sessionStorage.removeItem('existingUser')
      sessionStorage.removeItem('token')
-
-    window.location.href='/login'
   }
   return (
     <div>
