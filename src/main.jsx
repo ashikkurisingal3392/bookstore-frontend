@@ -9,7 +9,7 @@ import SearchContextShare from './context/SearchContextShare.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-    <GoogleOAuthProvider clientId="105064322078-c2ighq1aqgjkgvcusthr8r21o8hfj51o.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="540404990086-ilnemfk4b71i6ieu9v61779s3mb13es4.apps.googleusercontent.com">
       <SearchContextShare>
          <App />
       </SearchContextShare>
